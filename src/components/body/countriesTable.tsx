@@ -6,7 +6,7 @@ export interface StatsProps {
   countries: Country[] | undefined;
 }
 
-export const Stats = (props: StatsProps) => {
+export const CountriesTable = (props: StatsProps) => {
   const columns = [
     'Country',
     'Cases',
@@ -47,7 +47,7 @@ export const Stats = (props: StatsProps) => {
 
   return (
     <MUIDataTable
-      title={'List of countries affected'}
+      title={'List of affected countries'}
       data={data}
       columns={columns}
       options={options}

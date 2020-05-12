@@ -9,7 +9,7 @@ import { TitleBar } from './common/titleBar';
 import { Footer, FooterSelection } from './common/footer';
 import { GlobalStats } from './body/globalStats';
 import { CountriesStats } from './body/countriesStats';
-import { Stats } from './body/stats';
+import { CountriesTable } from './body/countriesTable';
 import { flags, splashImages } from '../utils/';
 
 declare global {
@@ -163,14 +163,14 @@ function App() {
       case FooterSelection.Global:
         return <GlobalStats stats={globalStats} image={splashImages[25]} />;
       case FooterSelection.Countries:
+        return <CountriesTable countries={filteredCountriesStats} />;
+      case FooterSelection.Stats:
         return (
           <CountriesStats
             countries={filteredCountriesStats}
             historicals={countriesHistorical}
           />
         );
-      case FooterSelection.Stats:
-        return <Stats countries={filteredCountriesStats} />;
       case FooterSelection.About:
         return <div>about</div>;
       default:
