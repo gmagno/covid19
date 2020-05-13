@@ -10,7 +10,9 @@ import { Footer, FooterSelection } from './common/footer';
 import { GlobalStats } from './body/globalStats';
 import { CountriesStats } from './body/countriesStats';
 import { CountriesTable } from './body/countriesTable';
-import { flags, splashImages } from '../utils/';
+import { flags, commonImages } from '../utils/';
+import { About } from './body/about';
+import { Copyright } from './copyright';
 
 declare global {
   interface Window {
@@ -86,6 +88,7 @@ function App() {
             }
             return c;
           })
+          .sort((a, b) => (a.country <= b.country ? -1 : 1))
           .sort((a, b) => (a.continent <= b.continent ? -1 : 1));
         setCountriesStats(updatedCountries);
         setFilteredCountriesStats(updatedCountries.map((c) => c));
@@ -161,7 +164,7 @@ function App() {
   const renderBody = () => {
     switch (footerSelectedItem) {
       case FooterSelection.Global:
-        return <GlobalStats stats={globalStats} image={splashImages[25]} />;
+        return <GlobalStats stats={globalStats} image={commonImages[1]} />;
       case FooterSelection.Countries:
         return <CountriesTable countries={filteredCountriesStats} />;
       case FooterSelection.Stats:
@@ -172,7 +175,7 @@ function App() {
           />
         );
       case FooterSelection.About:
-        return <div>about</div>;
+        return <About />;
       default:
         return <div></div>;
     }
@@ -209,6 +212,7 @@ function App() {
           />
           <TitleBar title="Covid-19" />
           {renderBody()}
+          <Copyright />
         </Container>
         <Footer
           selectedItem={footerSelectedItem}

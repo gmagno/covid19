@@ -4,8 +4,12 @@ function importAll(r: any) {
 
 declare var require: any;
 
-export const splashImages = importAll(
-  require.context('../images/', false, /\.(png|jpe?g|svg)$/)
+export const commonImages = importAll(
+  require.context('../images/common/', false, /\.(png|jpe?g|svg)$/)
+);
+
+export const undrawImages = importAll(
+  require.context('../images/undraw/', false, /\.(png|jpe?g|svg)$/)
 );
 
 export const flagsImages = () => {

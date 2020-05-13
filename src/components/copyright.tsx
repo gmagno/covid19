@@ -1,16 +1,28 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import { makeStyles, Box } from '@material-ui/core';
 
-export default function Copyright() {
+const useStyles = makeStyles((theme) => ({
+  box: {
+    marginTop: '64px',
+    marginBottom: '64px'
+  }
+}));
+
+export const Copyright = () => {
+  const classes = useStyles();
+
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://gmagno.dev">
-        gmagno.dev
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
+    <Box className={classes.box}>
+      <Typography variant="body2" color="textSecondary" align="center">
+        {'Copyright © '}
+        <Link color="inherit" href="https://gmagno.dev">
+          gmagno.dev
+        </Link>{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    </Box>
   );
-}
+};

@@ -7,11 +7,13 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  Button,
   Box,
   Grid,
-  Typography
+  Typography,
+  Tooltip,
+  IconButton
 } from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Country, Historical } from 'novelcovid';
 import { LineChart } from './lineChart';
 
@@ -21,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
   },
   casesHeader: {
     fontFamily: 'Hermit-Bold'
+  },
+  dialogActionsRoot: {
+    justifyContent: 'unset'
   }
 }));
 
@@ -133,15 +138,20 @@ export const CountryChart = (props: CountryChartProps) => {
             </Grid>
           </Box>
         </DialogContent>
-        <DialogActions>
-          <Button
+        <DialogActions classes={{ root: classes.dialogActionsRoot }}>
+          <Tooltip title="back" arrow={true}>
+            <IconButton aria-label="settings" onClick={props.onClose}>
+              <ArrowBackIcon />
+            </IconButton>
+          </Tooltip>
+          {/* <Button
             autoFocus
             onClick={props.onClose}
             color="primary"
             size="small"
           >
             <Typography variant="body1">Close</Typography>
-          </Button>
+          </Button> */}
         </DialogActions>
       </Dialog>
     </React.Fragment>

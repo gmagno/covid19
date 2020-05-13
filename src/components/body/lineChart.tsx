@@ -44,8 +44,12 @@ export const LineChart = (props: LineChartProps) => {
 
     const plot = Bokeh.Plotting.figure({
       title: props.title || '',
-      // tools: 'reset,save,zoom_in,box_zoom,pan,tap,wheel_zoom,hover',
-      tools: 'reset,pan,wheel_zoom',
+      // tools: 'reset,pan,wheel_zoom',
+      tools: [
+        new Bokeh.ResetTool(),
+        new Bokeh.PanTool(),
+        new Bokeh.WheelZoomTool()
+      ],
       height: targetRef.current?.offsetHeight || 300,
       width: targetRef.current?.offsetWidth || 300,
       x_axis_type: 'datetime',
