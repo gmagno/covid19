@@ -75,6 +75,11 @@ export const About = () => {
           </Link>
         </Typography>
         <Typography align="center">
+          <Link href="https://undraw.co/" onClick={() => {}} color="inherit">
+            <i className="fa fa-camera" aria-hidden="true"></i> Illustrations
+          </Link>
+        </Typography>
+        <Typography align="center">
           <Link
             href="https://github.com/gmagno/covid19"
             onClick={() => {}}
