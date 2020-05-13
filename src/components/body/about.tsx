@@ -90,11 +90,11 @@ export const About = () => {
         </Typography>
         <Typography align="center">
           <Link
-            href="mailto:goncalo@gmagno.dev"
+            href="https://twitter.com/gmagno6"
             onClick={() => {}}
             color="inherit"
           >
-            <i className="fa fa-envelope" aria-hidden="true"></i> Contact
+            <i className="fa fa-twitter" aria-hidden="true"></i> gmagno
           </Link>
         </Typography>
       </Container>
